@@ -14,12 +14,10 @@
     </head>
     <body>
         <h1>Shopping List</h1>
-        <form method="post" action="list">
-        Username: <input type="text" name="username" value="user" >
-        
-<!--        <a href="<c:url value='/list' />"> Register Name </a>-->
-        <input type="submit" value="action" name="register">
-    ${error}
+       <form method="post" action="list">
+            Username: <input type="text" name="user">
+            <input type="hidden" name="action" value="register">
+            <input type="submit" value="Register name">
         </form>
     </body>
 </html>

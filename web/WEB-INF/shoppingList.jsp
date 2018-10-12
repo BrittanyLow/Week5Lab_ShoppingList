@@ -15,24 +15,22 @@
     <body>
         <h1>Shopping List</h1>
         Hello, ${user} 
-        <a href="list?action=logout" > Logout</a>
+        <a href="?action=logout">Log Out</a>
+        <h2>List</h2>
         <br>
-        <h2> List </h2>
-        <br>
-        
-        <form method="post" action="list"> 
-        Add items: <input type="text" name="add">
-                   <input type="submit" value="Add" name="action">
-        
-                   <%--for every add item make to array list on a radio--%>
-         
-                   <c:forEach items="${listitem}" var="item" varStatus="status">
-                        <input type="radio" value="${status.add}" name="index">
-                        <c:out value="${item}"></c:out>
-                   </c:forEach>
-        
-            <%--delete from the array --%>
-            <input type="submit" value="delete" name="delete">
-       </form> 
+        <form method="post">
+            Add item: <input type="text" name="item">
+            <input type="hidden" name="action" value="add">
+            <input type="submit" value="Add">
+        </form>
+        <form method="post">
+            <ul>
+                <c:forEach var="item" items="${items}">
+                    <input checked type="radio" name="radio" value="${item}"> ${item} <br>
+                </c:forEach>
+            </ul>
+            <input type="hidden" name="action" value="delete">
+            <input type="submit" value="Delete">
+        </form> 
     </body>
 </html>
